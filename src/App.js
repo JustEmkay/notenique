@@ -18,7 +18,7 @@ var u_email = localStorage.getItem("email");
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Welcome />}></Route>
+      <Route path="/notenique" element={<Welcome />}></Route>
       <Route path="/Login" element={<Login />} />
       <Route path="/Register" element={u_email ? (<Home />):(<Register />)}></Route>
       <Route path="/test" element={<Test />}>
