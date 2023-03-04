@@ -1,5 +1,6 @@
 {
   "name": "notenique",
+  "homepage": "https://JustEmkay.github.io/notenique",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3000",
@@ -11,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "beautiful-react-diagrams": "^0.5.1",
     "express": "^4.18.2",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-flow-renderer": "^10.3.17",
@@ -23,6 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+     "predeploy": "npm run build",
+     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
