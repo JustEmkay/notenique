@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/notenique/static/css/main.430d8209.css",
+    "main.js": "/notenique/static/js/main.79779755.js",
+    "static/js/787.536430ed.chunk.js": "/notenique/static/js/787.536430ed.chunk.js",
+    "static/media/note.svg": "/notenique/static/media/note.6ad97f2fe7707d5e706afc3f2a9e66fa.svg",
+    "static/media/mindmap.svg": "/notenique/static/media/mindmap.7b4658bfc9648370731029a6de87be1c.svg",
+    "static/media/todo.svg": "/notenique/static/media/todo.3cb32bd4e7762968249474226fe86815.svg",
+    "index.html": "/notenique/index.html",
+    "main.430d8209.css.map": "/notenique/static/css/main.430d8209.css.map",
+    "main.79779755.js.map": "/notenique/static/js/main.79779755.js.map",
+    "787.536430ed.chunk.js.map": "/notenique/static/js/787.536430ed.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.430d8209.css",
+    "static/js/main.79779755.js"
+  ]
+}
