@@ -1,0 +1,3 @@
+{
+"jwtSecret" : "crypto_jwtSecret"
+}
