@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import mMap from "./Image/mindmap.svg";
 import toDo from "./Image/todo.svg";
 import noTe from "./Image/note.svg";
 
 const Home = () => {
+
+  useEffect(() => {
+    const hasRefreshed = localStorage.getItem("hasRefreshed");
+
+    if (!hasRefreshed) {
+      localStorage.setItem("hasRefreshed", "true");
+      window.location.reload();
+    }
+  }, []);
+
   return (
     <div className="w-full h-full">
       <div className="grid grid-cols-2 grid-rows-2 m-2 p-5 h-screen mx-auto text-center">

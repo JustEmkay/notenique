@@ -21,9 +21,9 @@ const Navbar = () => {
     const resolvedPath = useResolvedPath(to);
     const isActive = useMatch({ path: resolvedPath.pathname, end: true });
     
-    function handleClick() {
-      window.location.reload();
-    }
+    // function handleClick() {
+    //   window.location.reload();
+    // }
     return (
       <button
         className={
@@ -31,7 +31,7 @@ const Navbar = () => {
             ? "middle none center rounded-lg border-2 py-3 px-6 font-sans font-bold uppercase transition-all border-black bg-black text-white "
             : "middle none center rounded-lg border-2 py-3 px-6 font-sans font-bold uppercase text-black transition-all hover:bg-gray-500/10"
         }
-        onClick={handleClick}
+        // onClick={handleClick}
       >
         <Link to={to} {...props}>
           {children}

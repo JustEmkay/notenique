@@ -11,17 +11,18 @@ const Profile = () => {
   const [logoutMessage, setLogoutMessage] = useState("");
   const navigate = useNavigate();
   const logout = async () => {
-    try {
-      // const response = await fetch('http://localhost:4000/users/logout');
-      // const data = await response.json();
-      localStorage.clear();
-      setLogoutMessage("successfull");
-      setTimeout(() => {
-        navigate("/login", { replace: true });
-      }, 1500);
-    } catch (err) {
-      console.error(err);
-      setLogoutMessage("Logout failed");
+    const confirmLogout = window.confirm("Are you sure you want to Logout?");
+    if (confirmLogout) {
+      try {
+        localStorage.clear();
+        setLogoutMessage("successfull");
+        setTimeout(() => {
+          navigate("/login", { replace: true });
+        }, 1500);
+      } catch (err) {
+        console.error(err);
+        setLogoutMessage("Logout failed");
+      }
     }
   };
   //------todo
@@ -59,37 +60,39 @@ const Profile = () => {
   const [popup2, setPopUp2] = useState(false);
   const removeAccount = (item) => {
     console.log(item);
-    const confirmDelete = window.confirm("Are you sure you want to remove this account?");
-    if(confirmDelete)
-    {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to remove this account?"
+    );
+    if (confirmDelete) {
       fetch("http://localhost:4000/users/POPaccount/" + u_email + "/" + item, {
         method: "GET",
-      }).then((response) => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return response.json();
-      }).catch((error) => {
-        console.error(error);
-        if (error.message === "Error deleting user account") {
-          setPopUp(true);
-          alert("An error occurred while removing the account.");
-        } else {
-          setPopUp2(true);
-          setTimeout(() => {
-          localStorage.clear();
-          window.location.href = "/";
-          },3000)
-        }
-      });
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+          return response.json();
+        })
+        .catch((error) => {
+          console.error(error);
+          if (error.message === "Error deleting user account") {
+            setPopUp(true);
+            alert("An error occurred while removing the account.");
+          } else {
+            setPopUp2(true);
+            setTimeout(() => {
+              localStorage.clear();
+              window.location.href = "/";
+            }, 3000);
+          }
+        });
     }
-    
   };
 
   const DeativateModel = () => {
     const [value1, setValue1] = useState("");
     const [value2, setValue2] = useState("");
-    
+
     const handleSubmit = () => {
       if (value1 === value2) {
         removeAccount(value1);
@@ -149,9 +152,7 @@ const Profile = () => {
                       role="alert"
                     >
                       <strong class="font-bold">Bruh!! Why??</strong>
-                      <span class="block sm:inline">
-                        Bye Bye T-T
-                      </span>
+                      <span class="block sm:inline">Bye Bye T-T</span>
                     </div>
                   ) : (
                     <div></div>
@@ -184,11 +185,18 @@ const Profile = () => {
     setShowModal(!modal);
   };
 
+  if (logoutMessage) {
+    return (
+      <div className="loading fixed bottom-1 left-0 right-0  overflow-x-hidden bg-white overflow-y-auto md:inset-0 h-modal md:h-full">
+          <SyncLoader color="#000000" height={9} width={200} /> 
+        </div>
+    );
+  }
+
   return (
     <div>
       {modal && <DeativateModel />}
       <div className="bg-white flex justify-between h-screen flex-col">
-        {/* <div className="bg-cloud border-black border-b-2 w-100% h-1/5"></div> */}
         <div className="flex border rounded-xl bg-black border-black m-1 mt-12">
           <div className="w-3/5 flex flex-col bg-white  rounded-xl m-1 mt-4 border-black border">
             <div className="my-3 mx-1">
@@ -284,12 +292,12 @@ const Profile = () => {
           >
             Logout
           </button>
-          {logoutMessage && (
+          {/* {logoutMessage && (
             <p>
               {logoutMessage}
               <SyncLoader color="#36d7b7" />
             </p>
-          )}
+          )} */}
         </div>
         <div className="bg-cloud border-black border-t-2 w-100% h-1/5"></div>
       </div>

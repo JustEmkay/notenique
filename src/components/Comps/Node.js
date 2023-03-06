@@ -7,7 +7,6 @@ var u_email = localStorage.getItem("email");
 
 const Node = () => {  
   
-
   return (
     <>
     <div className="h-screen flex-col flex-wrap ">

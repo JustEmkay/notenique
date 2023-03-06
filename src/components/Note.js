@@ -173,10 +173,8 @@ const Note = () => {
                 class="group relative inline-block text-sm font-medium text-black outline-none focus:ring active:text-black"
                 type="submit"
               >
-                <span class="absolute  rounded-lg inset-0 translate-x-0 translate-y-0 bg-black transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
-
-                <span class="relative  rounded-lg block border-2 border-current bg-white px-8 py-3">
-                  Create
+                 <span class="absolute  rounded-lg inset-0 translate-x-0 translate-y-0 bg-black outline-none transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
+              <span class="relative  rounded-lg block border-2 outline-none border-current bg-white px-8 py-3">           Create
                 </span>
               </button>
             </form>
