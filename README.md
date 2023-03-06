@@ -14,3 +14,7 @@
 <li>Todo.
 <li>Pofile with statistics.
 </ol>
+
+<h3>Headaches:</h3>
+<li>Not fully responsive .
+<li>Cannot make nodes more than one.
