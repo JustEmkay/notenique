@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { Footer } from "./Comps/Footer";
 
 export const Welcome = () => {
   var [date, setDate] = useState(new Date());
@@ -33,8 +34,9 @@ export const Welcome = () => {
             </Link>
           </div>
         </nav>
-        <main className="">
-          <div class="relative flex overflow-x-hidden">
+        <main className="flex flex-col justify-center items-center">
+          <div class="relative flex w-11/12  h-full overflow-x-hidden">
+            
             <div class="py-12 text-4xl mx-4 animate-marquee whitespace-nowrap">
               <span>
                 -<b>EMBRACE THE JOURNEY</b>-{date.toLocaleTimeString()}
@@ -71,8 +73,8 @@ export const Welcome = () => {
               </span>
             </div>
           </div>
-          <section class="text-gray-600 body-font">
-            <div class="container px-5 py-2 mx-auto">
+          <section class="text-gray-600 w-11/12 h-full body-font">
+            <div class="container py-2 mx-auto">
               <div class="flex flex-wrap -m-4">
                 <div class="p-4 md:w-1/3">
                   <div class="h-full border-2 border-black rounded-lg overflow-hidden">
@@ -98,7 +100,7 @@ export const Welcome = () => {
                   </div>
                 </div>
                 <div class="p-4 md:w-1/3">
-                  <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                  <div class="h-full border-2 border-black rounded-lg overflow-hidden">
                     <img
                       class="lg:h-48 md:h-36 w-full object-cover object-center"
                       src="https://images.pexels.com/photos/6937932/pexels-photo-6937932.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -118,7 +120,7 @@ export const Welcome = () => {
                   </div>
                 </div>
                 <div class="p-4 md:w-1/3">
-                  <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                  <div class="h-full border-2 border-black rounded-lg overflow-hidden">
                     <img
                       class="lg:h-48 md:h-36 w-full object-cover object-center"
                       src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -142,7 +144,7 @@ export const Welcome = () => {
           </section>
         </main>
         <footer>
-        <div class="relative flex overflow-hidden bg-black text-white">
+        {/* <div class="relative flex overflow-hidden bg-black text-white">
             <div class="py-10 text-4xl mx-4  animate-marquee whitespace-nowrap">
               <span>
                 -<b>NOTENIQUE</b>-{date.toLocaleTimeString()}
@@ -178,7 +180,8 @@ export const Welcome = () => {
                 -<b>BE THE CHANGE</b>-{date.toLocaleDateString()}
               </span>
             </div>
-          </div>
+          </div> */}
+          <Footer />
         </footer>
       </div>
     
