@@ -53,7 +53,7 @@ const Login = () => {
   const togglePassword = () => setShowPassword(!showPassword);
 
   return (
-    <div className="flex h-screen justify-center items-center font-Montserrat">
+    <div className="flex flex-col w-auto h-screen justify-center items-center font-Montserrat">
       <form
         onSubmit={handleSubmit(loginauth)}
         className="bg-white border-4 border-black p-6 rounded-lg w-full sm:w-1/2 lg:w-1/3"
@@ -100,23 +100,35 @@ const Login = () => {
             onChange={togglePassword}
           />
         </div>
-        <button
-          type="submit"
-          className="group mr-2 relative hover:text-blue-400 inline-block text-sm font-medium text-black outline-none active:text-black"
-        >
-          <span class="absolute  rounded-lg inset-0 translate-x-0 translate-y-0 bg-black outline-none transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
-          <span class="relative  rounded-lg block border-2 outline-none border-current bg-white px-8 py-3">
-            Login
-          </span>
-        </button>
-        <button className="group relative inline-block text-sm font-medium text-black outline-none active:text-black">
-          <Link className="hover:text-red-400" to="/Register">
-            <span class="absolute  rounded-lg inset-0 translate-x-0 translate-y-0 bg-black outline-none transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
-            <span class="relative  rounded-lg block border-2 outline-none border-current bg-white px-8 py-3">
-              [Signup]
-            </span>
-          </Link>
-        </button>
+        <div className="flex justify-between">
+          <div>
+            <button
+              type="submit"
+              className="group mr-2 relative hover:text-blue-400 inline-block text-sm font-medium text-black outline-none active:text-black"
+            >
+              <span class="absolute  rounded-lg inset-0 translate-x-0 translate-y-0 bg-black outline-none transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
+              <span class="relative  rounded-lg block border-2 outline-none border-current bg-white px-8 py-3">
+                Login
+              </span>
+            </button>
+            <button className="group relative inline-block text-sm font-medium text-black outline-none active:text-black">
+              <Link className="hover:text-red-400" to="/Register">
+                <span class="absolute  rounded-lg inset-0 translate-x-0 translate-y-0 bg-black outline-none transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
+                <span class="relative  rounded-lg block border-2 outline-none border-current bg-white px-8 py-3">
+                  Signup
+                </span>
+              </Link>
+            </button>
+          </div>
+          <button className="group relative inline-block text-sm font-medium text-black outline-none active:text-black">
+            <Link className="hover:text-yellow-400" to="/notenique">
+              <span class="absolute  rounded-lg inset-0 translate-x-0 translate-y-0 bg-black outline-none transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
+              <span class="relative  rounded-lg block border-2 outline-none border-current bg-white px-8 py-3">
+                Home
+              </span>
+            </Link>
+          </button>
+        </div>
       </form>
     </div>
   );

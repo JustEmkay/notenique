@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const Register = () => {
@@ -11,7 +11,6 @@ const Register = () => {
     try {
       const url = "http://localhost:4000/users/register";
       const response = await fetch(url, {
-       
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -26,11 +25,11 @@ const Register = () => {
         setLoginMsg(err.msg);
         return;
       } else {
-                alert("Account created successfully,Redirects to Login page")
-          setTimeout(() => {
-            navigate('/Login', { replace: true });
-          }, 3000);
-      
+        alert("Account created successfully,Redirects to Login page");
+        setTimeout(() => {
+          navigate("/Login", { replace: true });
+        }, 3000);
+
         return <div>Redirecting...</div>;
       }
     } catch (err) {
@@ -124,24 +123,38 @@ const Register = () => {
             onChange={togglePassword}
           />
         </div>
-            <button type="submit" className="group mr-2 hover:text-blue-400 relative inline-block text-sm font-medium text-black outline-none active:text-black">
-            <span class="absolute  rounded-lg inset-0 translate-x-0 translate-y-0 bg-black outline-none transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
-          <span class="relative  rounded-lg block border-2 outline-none border-current bg-white px-8 py-3">
-            Create
-          </span>
+        <div className="flex justify-between">
+          <div>
+            <button
+              type="submit"
+              className="group mr-2 hover:text-blue-400 relative inline-block text-sm font-medium text-black outline-none active:text-black"
+            >
+              <span class="absolute  rounded-lg inset-0 translate-x-0 translate-y-0 bg-black outline-none transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
+              <span class="relative  rounded-lg block border-2 outline-none border-current bg-white px-8 py-3">
+                Create
+              </span>
             </button>
             <button className="group mr-2 relative inline-block text-sm font-medium text-black outline-none active:text-black">
-             <Link className="hover:text-red-400" to="/Login">
-             <span class="absolute  rounded-lg inset-0 translate-x-0 translate-y-0 bg-black outline-none transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
-          <span class="relative  rounded-lg block border-2 outline-none border-current bg-white px-8 py-3">
-            Cancel
-          </span>
+              <Link className="hover:text-red-400" to="/Login">
+                <span class="absolute  rounded-lg inset-0 translate-x-0 translate-y-0 bg-black outline-none transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
+                <span class="relative  rounded-lg block border-2 outline-none border-current bg-white px-8 py-3">
+                  Cancel
+                </span>
               </Link>
             </button>
+          </div>
+          <button className="group relative inline-block text-sm font-medium text-black outline-none active:text-black">
+            <Link className="hover:text-yellow-400" to="/notenique">
+              <span class="absolute  rounded-lg inset-0 translate-x-0 translate-y-0 bg-black outline-none transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
+              <span class="relative  rounded-lg block border-2 outline-none border-current bg-white px-8 py-3">
+                Home
+              </span>
+            </Link>
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
-export default Register
-
+export default Register;
