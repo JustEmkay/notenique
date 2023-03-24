@@ -232,7 +232,7 @@ const Profile = () => {
               </div>
               <div className="bg-blue-400 border border-black rounded-xl m-4 p-2">
                 <p className="text-2xl m-2 font-Montserrat font-extrabold">
-                  Non-mapped
+                  Nonmapped
                   <p className="text-sm font-normal font-Montserrat ">
                     (Notes without nodes)
                   </p>
@@ -292,12 +292,6 @@ const Profile = () => {
           >
             Logout
           </button>
-          {/* {logoutMessage && (
-            <p>
-              {logoutMessage}
-              <SyncLoader color="#36d7b7" />
-            </p>
-          )} */}
         </div>
         <div className="bg-cloud border-black border-t-2 w-100% h-1/5"></div>
       </div>

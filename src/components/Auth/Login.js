@@ -37,7 +37,6 @@ const Login = () => {
         localStorage.setItem("username", data.name);
         localStorage.setItem("phone", data.phone);
         localStorage.setItem("email", data.email);
-        //setIsLoggedIn(true);
         alert("login successful");
         setTimeout(() => {
           navigate("/test", { replace: true });

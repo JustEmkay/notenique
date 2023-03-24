@@ -30,7 +30,7 @@ const Register = () => {
           navigate("/Login", { replace: true });
         }, 3000);
 
-        return <div>Redirecting...</div>;
+        return <div>....</div>;
       }
     } catch (err) {
       console.log(err);

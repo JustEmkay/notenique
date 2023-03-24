@@ -20,7 +20,7 @@ function App() {
     <Routes>
       <Route path="/notenique" element={<Welcome />}></Route>
       <Route path="/Login" element={<Login />} />
-      <Route path="/Register" element={u_email ? (<Home />):(<Register />)}></Route>
+      <Route path="/Register" element={u_email ? (<Login />):(<Register />)}></Route>
       <Route path="/test" element={<Test />}>
         <Route index element={<Home />} />
         <Route path="/test/home" element={u_email ? (<Home />):(<Error404 />)} />

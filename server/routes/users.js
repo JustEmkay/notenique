@@ -4,6 +4,7 @@ var Redis = require("ioredis");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const { v4: uuidv4 } = require("uuid");
+const bcrypt = require('bcryptjs');
 
 var redis = new Redis();
 
@@ -12,13 +13,15 @@ router.get("/", function (req, res, next) {
   var name = redis.get("myname");
   res.send(name);
 });
-// router.post("/register", function (req, res, next) {
-//   var fName = req.body.email;
-//   var name = redis.get("myname");
-//   res.send(name);
-// });
+
 
 router.post("/register", function (req, res) {
+
+  // Hash the password with a salt
+  var salt = bcrypt.genSaltSync(10);
+  var hash = bcrypt.hashSync(req.body.password, salt);
+  password = hash;
+
   redis.hset(req.body.email, "username", req.body.username);
   console.log(req.body.username);
 
@@ -28,15 +31,17 @@ router.post("/register", function (req, res) {
   redis.hset(req.body.email, "phone", req.body.phone);
   console.log(req.body.phone);
 
-  redis.hset(req.body.email, "password", req.body.password);
-  console.log(req.body.password);
+  redis.hset(req.body.email, "password", password);
+  console.log(password);
+
+  // redis.hset(req.body.email, "password", req.body.password);
+  // console.log(req.body.password);
   let count = 0;
   redis.hset(req.body.email, "count", count);
   res.status(200).send("login success");
 });
 
 router.post("/note/update/:id/:email", function (req, res) {
-  console.log("vannu");
   redis.hget(req.params.email, "note", function (err, obj) {
     var temp = JSON.parse(obj);
     console.log(req.body);
@@ -107,13 +112,10 @@ router.get("/note/:email", function (req, res) {
   // console.log("email:"+req.params.email)
   // req.params.email
   redis.hget(req.params.email, "note", function (err, obj) {
-    // console.log(obj);
     if (obj == null) {
       res.status(400).send("no note");
     } else {
       res.status(200).send(obj);
-      // res.send(JSON.stringify(data));
-      // res.status(200).send("note added");
     }
   });
 });
@@ -158,13 +160,15 @@ router.post("/auth", function (req, res) {
     if (err) {
       console.log("Invalid Error");
     } else {
-      if (results.password != req.body.password) {
+      const hashedPassword = results.password;
+      let auth = bcrypt.compareSync(req.body.password, hashedPassword);
+      if (!auth) {
+      // if (results.password != req.body.password) {
         // setError('Invalid password');
         console.log(results.password);
         console.log(req.body.password);
         console.log("Invalid password");
         return res.status(400).json({ msg: "Login Failed.", err });
-        return;
       } else {
         jwt.sign(
           {
@@ -185,9 +189,7 @@ router.post("/auth", function (req, res) {
             });
           }
         );
-        //res.status(200).send("login success");
       }
-      // console.log(results)
     }
   });
 });
